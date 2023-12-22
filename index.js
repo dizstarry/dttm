@@ -2,14 +2,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const calendarElement = document.getElementById("calendar");
   const scheduleContainer = document.getElementById("schedule-container");
 
-  // Month names for header
+ 
   const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-  // Get the current date
-  const currentDate = new Date();
+   const currentDate = new Date();
 
-  // Render the calendar
-  renderCalendar(currentDate);
+   renderCalendar(currentDate);
 
   function renderCalendar(date) {
     const year = date.getFullYear();
@@ -34,18 +32,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     calendarElement.innerHTML = calendarHTML;
 
-    // Add event listeners for day selection
-    const dayElements = document.querySelectorAll('.day');
+        const dayElements = document.querySelectorAll('.day');
     dayElements.forEach(dayElement => {
       dayElement.addEventListener('click', () => {
-        // Get the selected day
+      
         const selectedDay = dayElement.innerText;
 
-        // Show confirmation pop-up
+      
         const isConfirmed = confirm(`Confirm Date for ${monthNames[month]} ${selectedDay}, ${year}?`);
 
         if (isConfirmed) {
-          // Display the schedule container
           scheduleContainer.style.display = 'block';
         }
       });
@@ -60,12 +56,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let calendarDaysHTML = '';
 
-    // Render empty cells for days before the first day of the month
+    
     for (let i = 0; i < firstDayOfWeek; i++) {
       calendarDaysHTML += '<div class="day"></div>';
     }
 
-    // Render the days of the month
+ 
     for (let day = 1; day <= daysInMonth; day++) {
       calendarDaysHTML += `<div class="day">${day}</div>`;
     }
@@ -85,14 +81,9 @@ function closePopup() {
 }
 
 function confirmAppointment() {
-  // Add your logic for confirming the appointment here
-  // For example, you can send the selected time to the server
-  // and handle the confirmation process.
 
-  // For now, let's just close the popup and redirect to another page.
   closePopup();
 
-  // Redirect to the thank-you page
   window.location.href = 'https://codepen.io/dizstarry/full/WNmNXda';
 }
         
